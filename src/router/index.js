@@ -17,14 +17,40 @@ export const constantRoutes = [
         component: () => import('@/views/login/index'),
     },
     {
-        path: '/index',
-        component: Layout
+        path: '/index', // 路由地址
+        component: Layout,  // 组件地址
+        children: [{
+            path: '', // 路由地址
+            name: 'index',
+            component: () => import('@/views/index/index'),
+            meta: { title: '首页', icon: 'dashboard' }
+        }]
     },
     {
-        path: '/404',
-        component: () => import('@/views/404'),
-        hidden: true
+        path: '/article', // 路由地址
+        component: Layout,  // 组件地址
+        children: [{
+            path: '', // 路由地址
+            name: 'article',
+            component: () => import('@/views/article/index'),
+            meta: { title: '文章页面', icon: 'dashboard' }
+        }]
     },
+    {
+        path: '/category', // 路由地址
+        component: Layout,  // 组件地址
+        children: [{
+            path: '', // 路由地址
+            name: 'category',
+            component: () => import('@/views/category/index'),
+            meta: { title: '文章列表', icon: 'dashboard' }
+        }]
+    },
+    // {
+    //     path: '/404',
+    //     component: () => import('@/views/404'),
+    //     hidden: true
+    // },
     // 404 page must be placed at the end !!!如果是静态路由，放这里就可以
     { path: '*', redirect: '/404', hidden: true }
 ]

@@ -2,15 +2,9 @@
   <!-- <div class="navbar"> -->
   <div :class="{ navbar: true, totop: isTop }">
     <ul class="bar">
-      <li>首页</li>
-      <li>乐享生活</li>
-      <li>硬核编程</li>
-      <li>绚丽前端</li>
-      <li>数据仓库</li>
-      <li>数据仓库</li>
-      <li>数据仓库</li>
-      <li>数据仓库</li>
-
+      <li v-for="(item, index) in categorys" @click="toTarget(item)">
+        {{ item }}
+      </li>
       <li class="search">
         <svg-icon icon-class="search" />
       </li>
@@ -24,6 +18,14 @@ export default {
   data() {
     return {
       isTop: false,
+      categorys: [
+        "首页",
+        "乐享生活",
+        "硬核编程",
+        "绚丽前端",
+        "数据仓库",
+        "数据仓库",
+      ],
     };
   },
   mounted() {
@@ -47,11 +49,25 @@ export default {
         this.isTop = false;
       }
     },
+    toTarget(path) {
+      switch (path) {
+        case "首页":
+          this.$router.push({
+            path: "/index",
+          });
+          break;
+        case "乐享生活":
+          this.$router.push({
+            path: "/category",
+          });
+          break;
+      }
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .navbar {
   width: 100%;
   height: 58px;

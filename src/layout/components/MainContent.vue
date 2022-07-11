@@ -1,74 +1,7 @@
 <template>
   <div class="content">
     <!-- 左右布局 -->
-    <div class="left">
-      <!-- 轮播图-走马灯 -->
-      <el-carousel trigger="click" height="300px">
-        <el-carousel-item v-for="(item, index) in banners" :key="index">
-          <img :src="item" alt="轮播图" />
-        </el-carousel-item>
-      </el-carousel>
-      <!-- 热门文章 -->
-      <div class="hot">
-        <h3>热门文章</h3>
-        <hr />
-        <ul>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        </ul>
-      </div>
-      <!-- 最新文章 -->
-      <div class="news">
-        <h3>最新文章</h3>
-        <hr />
-        <ul>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        </ul>
-      </div>
-      <!-- 分层板块 -->
-      <div class="subnew">
-        <h3>分层板块</h3>
-        <hr />
-        <ul>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        </ul>
-      </div>
-      <!-- 分层板块 -->
-      <div class="subnew">
-        <h3>分层板块</h3>
-        <hr />
-        <ul>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        </ul>
-      </div>
-      <!-- 分层板块 -->
-      <div class="subnew">
-        <h3>分层板块</h3>
-        <hr />
-        <ul>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-          <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        </ul>
-      </div>
-    </div>
+    <router-view :key="key" />
     <!-- 右侧小组件 -->
     <div class="right">
       <!-- 小图标 -->
@@ -77,7 +10,7 @@
           <svg-icon icon-class="youtube" size="50" />
         </a>
         <a href="#">
-          <svg-icon icon-class="zhifubao" size="45" />
+          <svg-icon icon-class="zhifubao" size="47" />
         </a>
         <a href="#">
           <svg-icon icon-class="weixin" size="50" />
@@ -100,6 +33,30 @@
           <span v-for="(tag, index) in tagList" :key="index">{{ tag }}</span>
         </div>
       </div>
+      <!-- 友情链接 -->
+      <Plate title="友情链接">
+        <div class="friends clearfix">
+          <span>百度搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+          <span>淘宝搜索</span>
+        </div>
+      </Plate>
+      <!-- 网站统计 -->
+      <Plate title="网站统计">
+        <div class="total clearfix">
+          <span>网站统计：1864篇</span>
+          <span>评论数目：6875条</span>
+          <span>评论数目：6875条</span>
+          <span>评论数目：6875条</span>
+          <span>评论数目：6875条</span>
+          <span>评论数目：6875条</span>
+        </div>
+      </Plate>
     </div>
   </div>
 </template>
@@ -109,12 +66,6 @@ export default {
   name: "maincontent",
   data() {
     return {
-      banners: [
-        "https://1024shen.com/wp-content/uploads/2020/06/2020062011220214.jpg",
-        "https://1024shen.com/wp-content/uploads/2020/06/2020062009421862.jpg",
-        "https://1024shen.com/wp-content/uploads/2020/06/2020062009250625.jpg",
-        "https://1024shen.com/wp-content/uploads/2020/06/2020062009251932.jpg",
-      ],
       tagList: [
         "美女(301)",
         "Python(301)",
@@ -154,32 +105,42 @@ export default {
         "音乐(301)",
         "装饰器(301)",
       ],
+      isTop: false,
     };
+  },
+  computed: {
+    key() {
+      return this.$route.path;
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.scrollToTop);
+  },
+  methods: {
+    scrollToTop() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      //为了计算距离顶部的高度，当高度大于50显示回顶部图标，小于50则隐藏
+      if (scrollTop > 60) {
+        console.log("页面滚动超过60了");
+        this.isTop = true;
+      } else {
+        console.log("页面没有超过50");
+        this.isTop = false;
+      }
+    },
   },
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .content {
   display: flex;
   width: 1226px;
   margin: 0 auto;
   margin-top: 10px;
-
-  .left {
-    flex: 2;
-    height: 100%;
-    margin-right: 10px;
-
-    .hot,
-    .news,
-    .subnew {
-      padding: 10px 10px;
-      background-color: #fff;
-      margin-bottom: 10px;
-      box-shadow: 0px 3px 5px #ccc;
-    }
-  }
 
   .right {
     flex: 1;
@@ -214,6 +175,12 @@ export default {
           margin-right: 5px;
           margin-bottom: 5px;
           border-radius: 6px;
+          opacity: 0.9;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 1;
+          }
         }
       }
     }
@@ -254,5 +221,28 @@ export default {
 
 .tagelist span:nth-child(9n + 8) {
   background-color: #f60;
+}
+
+.friends {
+  span {
+    float: left;
+    height: 30px;
+    color: #2196f3;
+    padding: 5px 5px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    opacity: 0.9;
+    cursor: pointer;
+  }
+}
+
+.total {
+  span {
+    float: left;
+    width: 50%;
+    height: 25px;
+    color: #4a4a4a;
+  }
 }
 </style>

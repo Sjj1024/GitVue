@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- logo区域 -->
     <header class="logobox">
       <div class="logo">
         <img src="../assets/common/xiaoshen.png" alt="" />
