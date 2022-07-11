@@ -14,7 +14,7 @@
           灯塔下的房车营地，倒是显得热闹一些。营地前的海滩上长满了荒草，海风吹来，一股萧瑟的咸腥味道。​编辑​编辑索性退了房开着车去了码头。鉴于对自驾跨海这件事情一无所知，我们以…
         </p>
         <div class="info">
-          <a href="#">1024小神</a>
+          <span><a href="#">1024小神</a></span>
           <span>1天前</span>
           <span>601次浏览</span>
           <span>19评论</span>
@@ -65,6 +65,14 @@ export default {
     font-size: 15px;
     p {
       margin: 0;
+    }
+    .info {
+      display: flex;
+      justify-content: flex-end;
+      span {
+        padding: 0px 12px;
+        color: gray;
+      }
     }
   }
 }

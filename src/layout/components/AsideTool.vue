@@ -137,6 +137,7 @@ export default {
   .litter {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     padding: 5px 10px;
     background-color: #fff;
     box-shadow: 0px 3px 5px #ccc;
