@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "navbar",
+  name: "Navbar",
   data() {
     return {
       isTop: false,
@@ -68,6 +68,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/variables.scss";
+
 .navbar {
   width: 100%;
   height: 58px;
@@ -82,10 +84,10 @@ export default {
 }
 
 .bar {
-  width: 1226px;
+  // width: 1226px;
   height: 58px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 $mainPadding;
   line-height: 58px;
   font-size: 18px;
   font-weight: 500;

@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style lang="scss" scope>
+@import "@/styles/variables.scss";
+
 @keyframes color-change-5x {
   0% {
     background: #2fadf6;
@@ -55,9 +57,10 @@ export default {
   animation: color-change-5x 10s linear 0.2s infinite alternate both;
 
   .logo {
-    width: 1226px;
+    // width: 1226px;
+    padding: 10px $mainPadding - 10px;
     height: 60px;
-    padding: 10px 10px;
+    // padding: 10px 10px;
     margin: 0 auto;
     img {
       width: 220px;

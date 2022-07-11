@@ -4,7 +4,7 @@
     <!-- 轮播图-走马灯 -->
     <el-carousel trigger="click" height="300px">
       <el-carousel-item v-for="(item, index) in banners" :key="index">
-        <img :src="item" alt="轮播图" />
+        <img :src="item" alt="轮播图" class="banner" />
       </el-carousel-item>
     </el-carousel>
     <!-- 热门文章 -->
@@ -90,8 +90,14 @@ export default {
 <style lang="scss" scope>
 .left {
   flex: 2;
+  width: 100%;
   height: 100%;
   margin-right: 10px;
+
+  .banner {
+    width: 100%;
+    height: 100%;
+  }
 
   .hot,
   .news,

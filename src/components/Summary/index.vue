@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "summary",
+  name: "Summary",
 };
 </script>
 
@@ -43,6 +43,7 @@ export default {
   h2 {
     margin: 0;
     margin-bottom: 10px;
+    font-size: 20px;
     font-weight: 400;
   }
 }
