@@ -1,5 +1,5 @@
 <template>
-  <div class="right" ref="tool">
+  <div class="right">
     <!-- 小图标 -->
     <div class="litter">
       <a href="#">
@@ -43,7 +43,7 @@
       </div>
     </Plate>
     <!-- 网站统计 -->
-    <Plate title="网站统计">
+    <Plate title="网站统计" ref="tool">
       <div class="total clearfix">
         <span>网站统计：1864篇</span>
         <span>评论数目：6875条</span>
@@ -101,13 +101,13 @@ export default {
         "装饰器(301)",
       ],
       isTop: false,
-      toolHeight: 0,
+      offsetTop: 0,
     };
   },
   mounted() {
     window.addEventListener("scroll", this.scrollToTop);
-    this.toolHeight = this.$refs.tool.offsetHeight;
-    console.log("toolHeight" + this.toolHeight);
+    this.offsetTop = this.$refs.tool.$el.offsetTop;
+    console.log("offsetTop" + this.offsetTop);
   },
   destroyed() {
     window.removeEventListener("scroll", this.scrollToTop, true);
@@ -119,7 +119,7 @@ export default {
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       //为了计算距离顶部的高度，当高度大于50显示回顶部图标，小于50则隐藏
-      if (scrollTop > this.toolHeight) {
+      if (scrollTop > this.offsetTop) {
         console.log("asidetool页面滚动超过60了");
         this.isTop = true;
       } else {
