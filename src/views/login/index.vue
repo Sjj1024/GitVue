@@ -297,8 +297,10 @@ $cursor: black;
       caret-color: $cursor;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+        -webkit-text-fill-color: $light_gray !important;
+        background-color: transparent;
+        background-image: none;
+        transition: background-color 50000s ease-in-out 0s;
       }
     }
   }

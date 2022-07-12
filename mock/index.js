@@ -19,6 +19,6 @@ module.exports = function (app) {
             message: "成功",
             data: json
         }
-        res.json(Mock.mock(json));
+        res.json(Mock.mock(response));
     });
 }
