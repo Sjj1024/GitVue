@@ -6,6 +6,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss' // global css
 import '@/icons' // icon
+import '@/permission' // permission control
 
 // 注册自己的插件，这个use方法会调用上边的install
 import Component from '@/components'

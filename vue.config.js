@@ -5,7 +5,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = 'vue Admin Template' // page title
+const name = 'VUEX博客系统' // page title
 
 //定义cdn
 let cdn = { css: [], js: [] }
