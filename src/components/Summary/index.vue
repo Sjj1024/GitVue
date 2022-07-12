@@ -1,18 +1,14 @@
 <template>
   <div class="new">
-    <h2>在世界上咖啡店最多的城市过周末</h2>
+    <slot name="title"></slot>
     <div class="summary">
       <div class="left">
         <img
           src="https://img-blog.csdnimg.cn/img_convert/50b8bbf039dc3e1d94e9c20c2de18fab.jpeg"
-          alt=""
         />
       </div>
       <div class="right">
-        <p>
-          这样一座城市，面积不大，主要的街道似乎只有一条，早餐过后我们散步过去，却发现没有一间开始营业的店铺。不知道它们会一直这样紧闭大门，还是只是我们的到访太早而已。稍远处有一处建在
-          灯塔下的房车营地，倒是显得热闹一些。营地前的海滩上长满了荒草，海风吹来，一股萧瑟的咸腥味道。​编辑​编辑索性退了房开着车去了码头。鉴于对自驾跨海这件事情一无所知，我们以…
-        </p>
+        <slot></slot>
         <div class="info">
           <span><a href="#">1024小神</a></span>
           <span>1天前</span>
@@ -50,23 +46,38 @@ export default {
 
 .summary {
   display: flex;
+  justify-content: space-between;
   .left {
+    flex: 1;
+    width: 260px;
     img {
       width: 260px;
       height: 160px;
       margin-right: 10px;
-      // vertical-align: middle;
     }
   }
   .right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 3;
+    margin-left: 10px;
+    position: relative;
     font-size: 15px;
     p {
+      text-indent: 2em;
+      letter-spacing: 0.1em;
       margin: 0;
+      color: gray;
+      line-height: 25px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
     }
     .info {
+      position: absolute;
+      right: 5px;
+      bottom: 0px;
       display: flex;
       justify-content: flex-end;
       span {

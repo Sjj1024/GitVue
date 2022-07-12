@@ -2,12 +2,31 @@
   <!-- <div class="navbar"> -->
   <div :class="{ navbar: true, totop: isTop }">
     <ul class="bar">
-      <li v-for="(item, index) in categorys" @click="toTarget(item)">
+      <li
+        v-for="(item, index) in categorys"
+        @click="toTarget(item, index)"
+        :class="{ active: index === activeN }"
+      >
         {{ item }}
       </li>
-      <li class="search">
+      <div class="user">
+        <a href="/"> 登陆 </a>
+        <span> | </span>
+        <a> 注册 </a>
+      </div>
+      <li class="search" @click="showSearch">
         <svg-icon icon-class="search" />
       </li>
+      <transition name="fade-transform" mode="out-in">
+        <el-input
+          :autofocus="isShowSearch"
+          v-model="searchStr"
+          ref="searchRef"
+          class="sinput"
+          placeholder="请输入..."
+          v-if="isShowSearch"
+        />
+      </transition>
     </ul>
   </div>
 </template>
@@ -26,6 +45,9 @@ export default {
         "数据仓库",
         "数据仓库",
       ],
+      activeN: 0,
+      searchStr: "",
+      isShowSearch: false,
     };
   },
   mounted() {
@@ -49,7 +71,8 @@ export default {
         this.isTop = false;
       }
     },
-    toTarget(path) {
+    toTarget(path, index) {
+      this.activeN = index;
       switch (path) {
         case "首页":
           this.$router.push({
@@ -63,6 +86,14 @@ export default {
           break;
       }
     },
+    showSearch() {
+      this.isShowSearch = !this.isShowSearch;
+      if (this.isShowSearch) {
+        this.$nextTick(() => {
+          this.$refs.searchRef.focus();
+        });
+      }
+    },
   },
 };
 </script>
@@ -73,8 +104,8 @@ export default {
 .navbar {
   width: 100%;
   height: 58px;
-  background-color: #244469;
-  box-shadow: 0px 3px 5px #ccc;
+  background-color: #fff;
+  // box-shadow: 0px 3px 5px #ccc;
 }
 
 .totop {
@@ -92,22 +123,46 @@ export default {
   font-size: 18px;
   font-weight: 500;
 
+  .sinput {
+    float: right;
+    width: 20%;
+    // margin-right: 5px;
+  }
+
   li {
+    box-sizing: border-box;
     float: left;
     width: auto;
     padding: 0 20px;
     min-width: 75px;
-    color: white;
-    background-color: #244469;
+    color: #222226;
+    font-weight: 520;
+    // background-color: #244469;
 
     &:hover {
-      background-color: #246469;
+      // border-bottom: 2px solid #62a1f8;
+      color: #62a1f8;
     }
   }
 
+  .active {
+    border-bottom: 2px solid #62a1f8;
+    color: #62a1f8;
+  }
+
   .search {
-    min-width: 25px;
     float: right;
+    min-width: 25px;
+  }
+
+  .user {
+    float: right;
+    margin-left: 10px;
+    a {
+      &:hover {
+        color: #62a1f8;
+      }
+    }
   }
 }
 </style>
