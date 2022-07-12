@@ -42,10 +42,11 @@ export default {
         "乐享生活",
         "硬核编程",
         "绚丽前端",
+        "技术杂谈",
         "数据仓库",
-        "数据仓库",
+        "留言板",
       ],
-      activeN: 0,
+      activeN: Number.parseInt(localStorage.getItem("cateIndex")) || 0,
       searchStr: "",
       isShowSearch: false,
     };
@@ -73,6 +74,7 @@ export default {
     },
     toTarget(path, index) {
       this.activeN = index;
+      localStorage.setItem("cateIndex", index);
       switch (path) {
         case "首页":
           this.$router.push({
