@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="login-container" v-if="isShowLogin">
     <el-form
       ref="loginForm"
       :model="loginForm"
@@ -60,8 +60,105 @@
       </el-button>
 
       <div class="tips">
-        <span style="margin-right: 20px">账号: 13800000002</span>
+        <span style="margin-right: 20px">测试账号: 13800000002</span>
         <span> 密码: 123456</span>
+        <span class="switch">
+          <a href="#" @click="isShowLogin = true">去登陆</a>
+          ｜
+          <a href="#" @click="isShowLogin = false">去注册</a>
+        </span>
+      </div>
+    </el-form>
+  </div>
+  <div class="regist-container" v-else>
+    <el-form
+      ref="loginForm"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
+      <div class="title-container">
+        <h3 class="title">VUEX博客系统</h3>
+      </div>
+
+      <el-form-item prop="mobile">
+        <span class="svg-container">
+          <svg-icon icon-class="user" />
+        </span>
+        <el-input
+          ref="mobile"
+          v-model="loginForm.mobile"
+          placeholder="请输入手机号"
+          name="mobile"
+          type="text"
+          tabindex="1"
+          auto-complete="on"
+        />
+      </el-form-item>
+
+      <el-form-item prop="password">
+        <span class="svg-container">
+          <svg-icon icon-class="password" />
+        </span>
+        <el-input
+          :key="passwordType"
+          ref="password"
+          v-model="loginForm.password"
+          :type="passwordType"
+          placeholder="请输入密码"
+          name="password"
+          tabindex="2"
+          auto-complete="on"
+          @keyup.enter.native="handleLogin"
+        />
+        <span class="show-pwd" @click="showPwd">
+          <svg-icon
+            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
+          />
+        </span>
+      </el-form-item>
+      <el-form-item prop="password">
+        <span class="svg-container">
+          <svg-icon icon-class="password" />
+        </span>
+        <el-input
+          :key="passwordType"
+          ref="password"
+          v-model="loginForm.password"
+          :type="passwordType"
+          placeholder="请再次输入密码"
+          name="password"
+          tabindex="2"
+          auto-complete="on"
+          @keyup.enter.native="handleLogin"
+        />
+        <span class="show-pwd" @click="showPwd">
+          <svg-icon
+            :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
+          />
+        </span>
+      </el-form-item>
+
+      <el-button
+        class="loginBtn"
+        :loading="loading"
+        type="primary"
+        style="width: 100%; margin-bottom: 30px"
+        @click.native.prevent="handleLogin"
+      >
+        注册
+      </el-button>
+
+      <div class="tips">
+        <span style="margin-right: 20px">测试账号: 13800000002</span>
+        <span> 密码: 123456</span>
+        <span class="switch">
+          <a href="#" @click="isShowLogin = true">去登陆</a>
+          ｜
+          <a href="#" @click="isShowLogin = false">去注册</a>
+        </span>
       </div>
     </el-form>
   </div>
@@ -70,6 +167,7 @@
 <script>
 import { validMobile } from "@/utils/validate";
 import { mapActions, mapState } from "vuex"; // 引入vuex的辅助函数
+import axios from "axios";
 
 export default {
   name: "Login",
@@ -111,6 +209,7 @@ export default {
       loading: false,
       passwordType: "password",
       redirect: undefined,
+      isShowLogin: true,
     };
   },
   computed: {
@@ -141,7 +240,7 @@ export default {
           try {
             this.loading = true;
             // 只有校验通过了 我们才去调用action
-            await this.login(this.loginForm);
+            await this.getUserInfo(this.loginForm);
             // 应该登录成功之后
             // async标记的函数实际上一个promise对象
             // await下面的代码 都是成功执行的代码
@@ -155,7 +254,7 @@ export default {
         }
       });
     },
-    ...mapActions("user", ["login"]),
+    ...mapActions("user", ["login", "getUserInfo"]),
   },
 };
 </script>
@@ -171,13 +270,15 @@ $light_gray: black; // 将输入框颜色改成蓝色
 $cursor: black;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-  .login-container .el-input input {
+  .login-container,
+  .regist-container .el-input input {
     color: $cursor;
   }
 }
 
 /* reset element-ui css */
-.login-container {
+.login-container,
+.regist-container {
   background-image: url("~@/assets/common/login.jpg"); // 设置背景图片
   background-position: center; // 将图片位置设置为充满整个屏幕
   .el-input {
@@ -230,7 +331,8 @@ $bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;
 
-.login-container {
+.login-container,
+.regist-container {
   min-height: 100%;
   width: 100%;
   background-color: $bg;
@@ -246,7 +348,7 @@ $light_gray: #eee;
   }
 
   .tips {
-    font-size: 14px;
+    font-size: 16px;
     color: #fff;
     margin-bottom: 10px;
 
@@ -254,6 +356,10 @@ $light_gray: #eee;
       &:first-of-type {
         margin-right: 16px;
       }
+    }
+
+    .switch {
+      float: right;
     }
   }
 

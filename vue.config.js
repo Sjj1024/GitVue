@@ -56,6 +56,9 @@ module.exports = {
     },
     externals: externals
   },
+  devServer: {
+    before: require("./mock/index")
+  },
   chainWebpack(config) {
     // when there are many pages, it will cause too many meaningless requests
     config.plugins.delete('prefetch')

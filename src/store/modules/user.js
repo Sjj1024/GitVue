@@ -1,3 +1,4 @@
+import { getUserInfo } from "@/api/user";
 
 const state = {
   token: "agalsdflajsljflajslfjaslfjals",
@@ -7,11 +8,11 @@ const state = {
 const mutations = {
   setToken(state, token) {
     state.token = token;
-    setToken(token);
+    // setToken(token);
   },
   removeToken(state) {
     state.token = null
-    removeToken()
+    // removeToken()
   },
   // 设置用户信息
   setUserInfo(state, userInfo) {
@@ -29,11 +30,17 @@ const actions = {
   // **`调用登录接口`**，**`成功后设置token到vuex`**，**`失败则返回失败`**
   async login(context, data) {
     // 异步调用登录接口
-    console.log('登陆接口');
+    console.log('调用登陆接口');
+    // 假数据
+    let userInfo = {}
+    // context.commit("user/setUserInfo", userInfo)
   },
   // 获取用户资料action，以下代码时异步操作，放入actions中
   async getUserInfo(context) {
     console.log('获取用户资料');
+    let userInfo = await getUserInfo()
+    // console.log('得到的userInfo' + userInfo);
+    context.commit("setUserInfo", userInfo)
   },
   // 登出的action（写在actions中）
   logout(context) {
