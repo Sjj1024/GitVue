@@ -103,6 +103,7 @@ export default {
     toTarget(path, index) {
       this.activeN = index;
       localStorage.setItem("cateIndex", index);
+      console.log("toTarget-path" + path);
       switch (path) {
         case "首页":
           this.$router.push({
@@ -112,6 +113,37 @@ export default {
         case "记录生活":
           this.$router.push({
             path: "/category",
+            query: { id: "1", cateName: path },
+          });
+          break;
+        case "硬核编程":
+          this.$router.push({
+            path: "/category",
+            query: { id: "2", cateName: path },
+          });
+          break;
+        case "绚丽前端":
+          this.$router.push({
+            path: "/category",
+            query: { id: "3", cateName: path },
+          });
+          break;
+        case "技术杂谈":
+          this.$router.push({
+            path: "/category",
+            query: { id: "4", cateName: path },
+          });
+          break;
+        case "数据仓库":
+          this.$router.push({
+            path: "/category",
+            query: { id: "5", cateName: path },
+          });
+          break;
+        case "留言板":
+          this.$router.push({
+            path: "/category",
+            query: { id: "6", cateName: path },
           });
           break;
       }

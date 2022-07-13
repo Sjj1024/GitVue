@@ -3,9 +3,7 @@
     <slot name="title"></slot>
     <div class="summary">
       <div class="left">
-        <img
-          src="https://img-blog.csdnimg.cn/img_convert/50b8bbf039dc3e1d94e9c20c2de18fab.jpeg"
-        />
+        <img :src="imgSrc" />
       </div>
       <div class="right">
         <slot></slot>
@@ -24,14 +22,19 @@
 <script>
 export default {
   name: "Summary",
+  props: {
+    imgSrc: {
+      type: String,
+      default:
+        "https://img-blog.csdnimg.cn/img_convert/50b8bbf039dc3e1d94e9c20c2de18fab.jpeg",
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .new {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
+  // width: 100%;
   height: 224px;
   padding: 10px;
   background-color: #fff;

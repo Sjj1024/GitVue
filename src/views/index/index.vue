@@ -31,6 +31,7 @@
           v-for="(item, index) in lifeList"
           :title="item.title"
           :imgSrc="item.imgSrc"
+          :key="index"
         >
         </MiddleArticle>
       </ul>
@@ -42,6 +43,7 @@
           v-for="(item, index) in lifeList"
           :title="item.title"
           :imgSrc="item.imgSrc"
+          :key="index"
         >
         </MiddleArticle>
       </ul>
@@ -53,6 +55,7 @@
           v-for="(item, index) in lifeList"
           :title="item.title"
           :imgSrc="item.imgSrc"
+          :key="index"
         >
         </MiddleArticle>
       </ul>
@@ -64,6 +67,7 @@
           v-for="(item, index) in lifeList"
           :title="item.title"
           :imgSrc="item.imgSrc"
+          :key="index"
         >
         </MiddleArticle>
       </ul>

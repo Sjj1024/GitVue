@@ -167,7 +167,6 @@
 <script>
 import { validMobile } from "@/utils/validate";
 import { mapActions, mapState } from "vuex"; // 引入vuex的辅助函数
-import axios from "axios";
 
 export default {
   name: "Login",
