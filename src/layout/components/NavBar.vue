@@ -9,7 +9,28 @@
       >
         {{ item }}
       </li>
-      <div class="user">
+      <el-dropdown class="avatar-container" trigger="click" v-if="name">
+        <div class="avatar-wrapper">
+          <img :src="staffPhoto" class="user-avatar" v-imagerror="defaultImg" />
+          <!-- <span class="name">{{ name }}</span> -->
+          <!-- <i class="el-icon-caret-bottom" style="color: #fff" /> -->
+        </div>
+        <el-dropdown-menu slot="dropdown" class="user-dropdown">
+          <el-dropdown-item>
+            <span class="name">{{ name }}</span>
+          </el-dropdown-item>
+          <router-link to="/" target="_blank">
+            <el-dropdown-item> 我的资料 </el-dropdown-item>
+          </router-link>
+          <a target="_blank" href="https://github.com/Sjj1024/GitVue">
+            <el-dropdown-item>项目地址</el-dropdown-item>
+          </a>
+          <el-dropdown-item divided @click.native="logoutMe">
+            <span style="display: block">退出登录</span>
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <div class="user" v-else>
         <a href="/"> 登陆 </a>
         <span> | </span>
         <a> 注册 </a>
@@ -32,6 +53,8 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Navbar",
   data() {
@@ -49,6 +72,7 @@ export default {
       activeN: Number.parseInt(localStorage.getItem("cateIndex")) || 0,
       searchStr: "",
       isShowSearch: false,
+      defaultImg: require("@/assets/common/mylogo.jpg"),
     };
   },
   mounted() {
@@ -56,6 +80,10 @@ export default {
   },
   destroyed() {
     window.removeEventListener("scroll", this.scrollToTop, true);
+  },
+  computed: {
+    ...mapState("user", ["userInfo"]),
+    ...mapGetters("user", ["staffPhoto", "name"]),
   },
   methods: {
     scrollToTop() {
@@ -96,6 +124,11 @@ export default {
         });
       }
     },
+    async logoutMe() {
+      await this.logout();
+      this.$router.push("/login"); // 跳到登录
+    },
+    ...mapActions("user", ["logout"]),
   },
 };
 </script>
@@ -117,6 +150,7 @@ export default {
 }
 
 .bar {
+  position: relative;
   // width: 1226px;
   height: 58px;
   margin: 0 auto;
@@ -126,9 +160,48 @@ export default {
   font-weight: 500;
 
   .sinput {
-    float: right;
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translate(-75%, -50%);
     width: 20%;
-    // margin-right: 5px;
+  }
+
+  .avatar-container {
+    float: right;
+
+    .user-dropdown {
+      .el-dropdown-menu__item {
+        text-align: center;
+      }
+    }
+
+    .avatar-wrapper {
+      // margin-top: 5px;
+      position: relative;
+      height: 58px;
+      width: 90px;
+      text-align: center;
+      line-height: 58px;
+      cursor: pointer;
+
+      .user-avatar {
+        cursor: pointer;
+        width: 42px;
+        height: 42px;
+        line-height: 58px;
+        border-radius: 21px;
+        vertical-align: middle;
+      }
+
+      .el-icon-caret-bottom {
+        cursor: pointer;
+        position: absolute;
+        right: -20px;
+        top: 10px;
+        font-size: 18px;
+      }
+    }
   }
 
   li {
@@ -155,6 +228,7 @@ export default {
   .search {
     float: right;
     min-width: 25px;
+    padding: 0;
   }
 
   .user {

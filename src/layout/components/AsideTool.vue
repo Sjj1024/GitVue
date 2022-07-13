@@ -7,12 +7,33 @@
       </a>
       <a href="#">
         <svg-icon icon-class="zhifubao" size="47" />
+        <div class="tool-arrow"></div>
+        <div class="dropdown">
+          <div class="tool-title">支付宝：2950525265@qq.com</div>
+          <div class="tool-content">
+            <img src="../../assets/common/zhifupay.jpeg" alt="" />
+          </div>
+        </div>
       </a>
       <a href="#">
         <svg-icon icon-class="weixin" size="50" />
+        <div class="tool-arrow"></div>
+        <div class="dropdown">
+          <div class="tool-title">微信公众号：1024小神</div>
+          <div class="tool-content">
+            <img src="../../assets/common/weixinpay.jpeg" alt="" />
+          </div>
+        </div>
       </a>
       <a href="#">
         <svg-icon icon-class="qq" size="50" />
+        <div class="tool-arrow"></div>
+        <div class="dropdown">
+          <div class="tool-title">QQ号：648133599</div>
+          <div class="tool-content">
+            <img src="../../assets/common/qq.jpg" alt="" />
+          </div>
+        </div>
       </a>
       <a href="#">
         <svg-icon icon-class="github" size="50" />
@@ -143,8 +164,70 @@ export default {
     box-shadow: 0px 3px 5px #ccc;
     a {
       padding: 0 7px;
+      position: relative;
       svg-icon {
         width: 20px;
+      }
+
+      .tool-arrow {
+        display: none;
+        position: absolute;
+        top: 48px;
+        left: 15px;
+        width: 0;
+        height: 0;
+        border-left: 18px solid transparent;
+        border-right: 18px solid transparent;
+        border-bottom: 18px solid gray;
+        z-index: 1000;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 1.5px;
+          margin-left: -20px;
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #f7f7f7;
+        }
+      }
+
+      .dropdown {
+        display: none;
+        width: 250px;
+        height: 310px;
+        position: absolute;
+        top: 65px;
+        left: -103px;
+        border-radius: 5px;
+        border: 1px solid gray;
+        background-color: #fff;
+        z-index: 999;
+
+        .tool-title {
+          height: 36px;
+          border-radius: 5px;
+          line-height: 36px;
+          text-align: center;
+          background-color: #f7f7f7;
+        }
+
+        .tool-content {
+          padding: 5px;
+          img {
+            width: 100%;
+            height: 262px;
+            border-radius: 0 0 5px 5px;
+          }
+        }
+      }
+      &:hover > .dropdown {
+        display: block;
+      }
+      &:hover > .tool-arrow {
+        display: block;
       }
     }
   }

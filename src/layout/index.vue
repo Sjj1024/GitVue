@@ -33,17 +33,14 @@ export default {
   0% {
     background: #2fadf6;
   }
-  25% {
+  40% {
     background: #0277bd;
   }
-  50% {
+  80% {
     background: #3f51b5;
   }
-  75% {
-    background: #7c44b0;
-  }
   100% {
-    background: #ef66b6;
+    background: #2fadf6;
   }
 }
 
