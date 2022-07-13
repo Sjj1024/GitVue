@@ -31,13 +31,13 @@ export default {
 
 @keyframes color-change-5x {
   0% {
-    background: #2fadf6;
+    background: #0089ba;
   }
   40% {
-    background: #0277bd;
+    background: #0081cf;
   }
   80% {
-    background: #3f51b5;
+    background: #2c73d2;
   }
   100% {
     background: #2fadf6;

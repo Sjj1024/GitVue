@@ -11,13 +11,7 @@
     <div class="hot">
       <h3>热门文章</h3>
       <hr />
-      <ul>
-        <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-        <li>2021，不念过往，不畏将来，所有期待如期而至</li>
-      </ul>
+      <HotArticle></HotArticle>
     </div>
     <!-- 最新文章 -->
     <div class="news">
@@ -71,6 +65,8 @@
 </template>
 
 <script>
+import HotArticle from "@/views/index/components/HotArticle";
+
 export default {
   name: "index",
   data() {
@@ -83,6 +79,9 @@ export default {
         "https://1024shen.com/wp-content/uploads/2020/06/2020062009251932.jpg",
       ],
     };
+  },
+  components: {
+    HotArticle,
   },
 };
 </script>
