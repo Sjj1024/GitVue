@@ -25,7 +25,8 @@ export default {
 <style>
 .tage {
   margin-top: 10px;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
+  padding: 15px 20px;
   background-color: #fff;
   box-shadow: 0px 3px 5px #ccc;
 }

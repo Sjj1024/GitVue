@@ -62,7 +62,7 @@ export default {
       isTop: false,
       categorys: [
         "首页",
-        "乐享生活",
+        "记录生活",
         "硬核编程",
         "绚丽前端",
         "技术杂谈",
@@ -109,7 +109,7 @@ export default {
             path: "/index",
           });
           break;
-        case "乐享生活":
+        case "记录生活":
           this.$router.push({
             path: "/category",
           });
