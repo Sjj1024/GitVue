@@ -11,7 +11,8 @@
         <div class="dropdown">
           <div class="tool-title">支付宝：2950525265@qq.com</div>
           <div class="tool-content">
-            <img src="../../assets/common/zhifupay.jpeg" alt="" />
+            <!-- <img src="../../assets/common/zhifupay.jpeg" alt="" /> -->
+            <img src="../../assets/common/zhifuhongbao.png" alt="" />
           </div>
         </div>
       </a>
@@ -83,7 +84,7 @@ export default {
   data() {
     return {
       tagList: [
-        "美女(301)",
+        "图片(301)",
         "Python(301)",
         "爬虫(301)",
         "Vue(301)",
