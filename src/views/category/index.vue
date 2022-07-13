@@ -43,8 +43,6 @@ export default {
   async created() {
     this.cateId = this.$route.query.id;
     this.cateName = this.$route.query.cateName;
-    // console.log("得到的文章cateId1是：", this.cateId);
-    // console.log("得到的文章cateId1是：", this.cateId);
     let res = await getArticles({ id: this.cateId });
     // console.log("getArticles", res);
     this.articleList = res;

@@ -40,7 +40,7 @@
     <Plate title="辞职旅游">
       <ul class="article-list">
         <MiddleArticle
-          v-for="(item, index) in lifeList"
+          v-for="(item, index) in travelList"
           :title="item.title"
           :imgSrc="item.imgSrc"
           :key="index"
@@ -52,7 +52,7 @@
     <Plate title="拍照摄影">
       <ul class="article-list">
         <MiddleArticle
-          v-for="(item, index) in lifeList"
+          v-for="(item, index) in photoList"
           :title="item.title"
           :imgSrc="item.imgSrc"
           :key="index"
@@ -64,7 +64,7 @@
     <Plate title="前端后端">
       <ul class="article-list">
         <MiddleArticle
-          v-for="(item, index) in lifeList"
+          v-for="(item, index) in frontList"
           :title="item.title"
           :imgSrc="item.imgSrc"
           :key="index"
@@ -78,6 +78,8 @@
 <script>
 import HotArticle from "@/views/index/components/HotArticle";
 import MiddleArticle from "@/views/index/components/MiddleArticle";
+import { getArticles } from "@/api/article";
+import { randomList, preList } from "@/utils/utils.js";
 
 export default {
   name: "index",
@@ -149,11 +151,20 @@ export default {
             "https://img-blog.csdnimg.cn/cb8836feb4f94550ada4a87b7b7c1a74.gif",
         },
       ],
+      travelList: [],
+      photoList: [],
+      frontList: [],
     };
   },
   components: {
     HotArticle,
     MiddleArticle,
+  },
+  async created() {
+    this.lifeList = preList(await getArticles({ id: 1 }), 8);
+    this.travelList = preList(await getArticles({ id: 1 }), 8);
+    this.photoList = preList(await getArticles({ id: 1 }), 8);
+    this.frontList = preList(await getArticles({ id: 1 }), 8);
   },
 };
 </script>
