@@ -1,5 +1,5 @@
 <template>
-  <div class="middle-mark">
+  <div class="middle-mark" @click="toArticle">
     <img :src="imgSrc" />
     <span>
       {{ title }}
@@ -19,6 +19,14 @@ export default {
       type: String,
       default:
         "https://img-blog.csdnimg.cn/img_convert/132432af7aef388263ab33d45516596e.jpeg",
+    },
+  },
+  methods: {
+    toArticle() {
+      this.$router.push({
+        path: "/article",
+        query: { id: 232 },
+      });
     },
   },
 };

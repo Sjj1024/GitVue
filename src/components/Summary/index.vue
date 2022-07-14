@@ -1,5 +1,5 @@
 <template>
-  <div class="new">
+  <div class="new" @click="toArticle">
     <slot name="title"></slot>
     <div class="summary">
       <div class="left">
@@ -27,6 +27,14 @@ export default {
       type: String,
       default:
         "https://img-blog.csdnimg.cn/img_convert/50b8bbf039dc3e1d94e9c20c2de18fab.jpeg",
+    },
+  },
+  methods: {
+    toArticle() {
+      this.$router.push({
+        path: "/article",
+        query: { id: 232 },
+      });
     },
   },
 };
