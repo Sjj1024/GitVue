@@ -222,7 +222,7 @@ function creatArticle(num) {
             imgSrc: "https://img-blog.csdnimg.cn/img_convert/c602cea2ec13f8762726b4a900f9ba9a.gif"
         }, {
             title: "当我第一次走近 上海 陆家嘴的城市快节奏，即使还未工作，心底里都会油然而生“不努力就会",
-            imgSrc: "https://img-blog.csdnimg.cn/img_convert/cc527b9317ddfbb62baca69689d45c68.gif"
+            imgSrc: "https://img-blog.csdnimg.cn/img_convert/01c85c92f77e7f2064a2c07bc84f33fc.gif"
         }, {
             title: "武汉 城市是忙乱的，就像热干面拌过后酱料分布各处； 苏州 工业园区是文艺且绚烂的，即使是",
             imgSrc: "https://img-blog.csdnimg.cn/img_convert/6f4e8fd6f3cffefbfd9f7f8370397db6.gif"

@@ -17,12 +17,12 @@
       </template>
     </Summary>
     <el-row type="flex" justify="center" align="middle" style="height: 60px">
-      <!-- <span>nihao</span> -->
       <el-pagination
         :small="false"
         background
         layout="prev, pager, next"
         :total="1000"
+        @current-change="changePage"
       />
     </el-row>
   </div>
@@ -59,6 +59,14 @@ export default {
           this.articleList = res;
         });
       }
+    },
+  },
+  methods: {
+    async changePage(pageNum) {
+      console.log("pageNum", pageNum);
+      let res = await getArticles({ id: this.cateId });
+      this.articleList = res;
+      window.scroll(0, 0);
     },
   },
 };

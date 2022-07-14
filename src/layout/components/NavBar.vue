@@ -142,8 +142,8 @@ export default {
           break;
         case "留言板":
           this.$router.push({
-            path: "/category",
-            query: { id: "6", cateName: path },
+            path: "/singlepage",
+            query: { single: true, cateName: path },
           });
           break;
       }

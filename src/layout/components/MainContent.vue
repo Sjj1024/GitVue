@@ -1,9 +1,11 @@
 <template>
   <div class="content">
     <!-- 左边主体布局 -->
-    <router-view :key="key" />
+    <keep-alive>
+      <router-view :key="key" />
+    </keep-alive>
     <!-- 右侧小组件 -->
-    <AsideTool></AsideTool>
+    <AsideTool v-if="!single"></AsideTool>
   </div>
 </template>
 
@@ -16,6 +18,12 @@ export default {
     return {
       isTop: false,
     };
+  },
+  props: {
+    single: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     key() {

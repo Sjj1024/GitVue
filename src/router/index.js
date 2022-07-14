@@ -51,6 +51,17 @@ export const constantRoutes = [
         }]
     },
     {
+        path: '/singlepage', // 路由地址
+        component: Layout,  // 组件地址
+        name: '独立页面',
+        children: [{
+            path: '', // 路由地址
+            name: '独立页面',
+            component: () => import('@/views/singlepage/index'),
+            meta: { title: '独立页面', icon: 'dashboard' }
+        }]
+    },
+    {
         path: '/404',
         name: "404",
         component: () => import('@/views/404'),

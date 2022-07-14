@@ -9,7 +9,7 @@
     <!-- 头部导航区域 -->
     <NavBar></NavBar>
     <!-- 主体内容区域 -->
-    <MainContent></MainContent>
+    <MainContent :single="single"></MainContent>
   </div>
 </template>
 
@@ -19,9 +19,29 @@ import MainContent from "@/layout/components/MainContent";
 
 export default {
   name: "layout",
+  data() {
+    return {
+      single: false,
+    };
+  },
   components: {
     NavBar,
     MainContent,
+  },
+  created() {
+    let single = this.$route.query.single;
+    console.log("MainContent-single:", single);
+    this.single = Boolean(single);
+  },
+  watch: {
+    // 监听路由是否变化
+    $route(to, from) {
+      if (to.query != from.query) {
+        let single = to.query.single;
+        console.log("MainContent-single:", single);
+        this.single = Boolean(single);
+      }
+    },
   },
 };
 </script>
