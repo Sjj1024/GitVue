@@ -10,6 +10,8 @@
     <NavBar></NavBar>
     <!-- 主体内容区域 -->
     <MainContent :single="single"></MainContent>
+    <!-- 页脚部分 -->
+    <footer>Copyright © 2014-2020 1024小神 ｜豫ICP备20012817号-1</footer>
   </div>
 </template>
 
@@ -85,5 +87,13 @@ export default {
       display: block;
     }
   }
+}
+
+footer {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #ddd;
 }
 </style>
