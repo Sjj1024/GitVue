@@ -9,7 +9,7 @@
 <p>菜单栏支持二级菜单展开：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/dbe0d61ca5714b0b98df5a80fcef8bac.png" width="1200">&nbsp;</p> 
 <p>侧边工具栏支持图片：</p> 
-<p><img alt="" height="500" src="https://img-blog.csdnimg.cn/f1fb007f11bf4948b897f121cbddd3eb.png" width="1200">&nbsp;</p> 
+<p><img alt="" height="500" src="https://github.com/Sjj1024/GitVue/blob/main/src/assets/common/%E4%BE%A7%E8%BE%B9%E5%B7%A5%E5%85%B7%E6%A0%8F.png?raw=true" width="1200">&nbsp;</p> 
 <p>文章列表页：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/2c186871daeb4b9ebaa696bdad9d84af.png" width="1200">&nbsp;</p> 
 <p>留言板页面：</p> 
