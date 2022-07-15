@@ -1,6 +1,7 @@
 <template>
   <!-- <div class="navbar"> -->
   <div :class="{ navbar: true, totop: isTop }">
+    <!-- 菜单栏 -->
     <ul class="bar">
       <li
         v-for="(item, index) in categorys"
@@ -8,7 +9,15 @@
         :class="{ active: index === activeN }"
       >
         {{ item }}
+        <div class="tool-arrow" v-if="item != '首页'"></div>
+        <ul class="sub-menu" v-if="item != '首页'">
+          <li><a @click="toTarget(item, index)">拍照记录</a></li>
+          <li><a @click="toTarget(item, index)">拍照记录</a></li>
+          <li><a @click="toTarget(item, index)">拍照记录</a></li>
+          <li><a @click="toTarget(item, index)">拍照记录</a></li>
+        </ul>
       </li>
+      <!-- 用户头像 -->
       <el-dropdown class="avatar-container" trigger="click" v-if="name">
         <div class="avatar-wrapper">
           <img :src="staffPhoto" class="user-avatar" v-imagerror="defaultImg" />
@@ -190,6 +199,69 @@ export default {
   line-height: 58px;
   font-size: 18px;
   font-weight: 500;
+
+  li {
+    position: relative;
+
+    .tool-arrow {
+      display: none;
+      position: absolute;
+      top: 48px;
+      left: 40%;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid #ececec;
+      z-index: 1001;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 1.5px;
+        margin-left: -20px;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid #fff;
+      }
+    }
+
+    .sub-menu {
+      display: none;
+      position: absolute;
+      top: 58px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 5px 0;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 1px 10px #ccc;
+      text-align: center;
+
+      li {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 0;
+        text-align: center;
+        // &:hover {
+        //   background-color: #2d6cdf;
+        // }
+      }
+    }
+
+    &:hover > .sub-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &:hover > .tool-arrow {
+      display: block;
+    }
+  }
 
   .sinput {
     position: absolute;
