@@ -25,6 +25,8 @@
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/410a1b1ddd4d4ea9a0325e05840a2b51.png" width="1200">&nbsp;</p> 
 <p>可以点赞收藏分享等：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/2415a301414745169d67812ccc62e1e3.png" width="1200">&nbsp;</p> 
+<p>用户详情页面支持多个分栏切换，后期会对接支付平台，增加支付功能：</p> 
+<p><img alt="" height="500" src="https://img-blog.csdnimg.cn/0b76194c52b94253910cef8f9f3b7ed3.png" width="1200">&nbsp;</p> 
 <p>&nbsp;项目地址：</p> 
 <p><a href="https://github.com/Sjj1024/GitVue" title="GitHub - Sjj1024/GitVue: 使用vue重写git主题">GitHub - Sjj1024/GitVue: 使用vue重写git主题</a></p>
                 </div>
