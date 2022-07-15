@@ -101,11 +101,9 @@ export default {
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       //为了计算距离顶部的高度，当高度大于50显示回顶部图标，小于50则隐藏
-      if (scrollTop > 60) {
-        console.log("页面滚动超过60了");
+      if (scrollTop > 120) {
         this.isTop = true;
       } else {
-        console.log("页面没有超过50");
         this.isTop = false;
       }
     },
