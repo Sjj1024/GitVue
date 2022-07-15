@@ -54,8 +54,8 @@
         </div>
       </div>
     </div>
-    <!-- 评论输入 -->
-    <Plate :isShowTitle="false" class="commit-user">
+    <!-- 留言 -->
+    <Plate :isShowTitle="false" class="commits">
       <div class="comment-box">
         <div class="avatar-wrapper">
           <img :src="staffPhoto" class="user-avatar" v-imagerror="defaultImg" />
@@ -70,9 +70,7 @@
           </el-input>
         </div>
       </div>
-    </Plate>
-    <!-- 留言展示 -->
-    <Plate :isShowTitle="false" class="commits">
+      <hr style="background-color: #eee; height: 1px; border: none" />
       <ul>
         <li>
           <div class="commit-item">
@@ -412,6 +410,7 @@ export default {
     .titlt {
       padding: 15px 0;
       margin: 0;
+      color: #444;
     }
 
     .user-info {
@@ -442,12 +441,22 @@ export default {
         padding: 10px 0;
         border-radius: 5px;
         border: 1px solid #ccc;
+        &:hover {
+          color: white;
+          background-color: #0081cf;
+        }
       }
 
       .actions {
-        padding: 10px 0;
+        padding: 20px 0px 10px 0px;
         span {
+          padding: 5px 5px;
           margin: 0 10px;
+          cursor: pointer;
+          border-radius: 20px;
+          &:hover {
+            color: #0081cf;
+          }
         }
       }
     }
@@ -523,6 +532,7 @@ h4 {
   display: flex;
   height: 50px;
   line-height: 50px;
+  margin-bottom: 20px;
   .user-header {
     flex: 1;
   }

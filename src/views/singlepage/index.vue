@@ -22,8 +22,8 @@
         </span>
       </div>
     </Plate>
-    <!-- 评论输入 -->
-    <Plate :isShowTitle="false" class="commit-user">
+    <!-- 留言-->
+    <Plate :isShowTitle="false" class="commits">
       <div class="comment-box">
         <div class="avatar-wrapper">
           <img :src="staffPhoto" class="user-avatar" v-imagerror="defaultImg" />
@@ -38,9 +38,7 @@
           </el-input>
         </div>
       </div>
-    </Plate>
-    <!-- 留言展示 -->
-    <Plate :isShowTitle="false" class="commits">
+      <hr style="background-color: #eee; height: 1px; border: none" />
       <ul>
         <li>
           <div class="commit-item">
@@ -406,6 +404,7 @@ ul {
   display: flex;
   height: 50px;
   line-height: 50px;
+  margin-bottom: 20px;
   .user-header {
     flex: 1;
   }
