@@ -65,6 +65,9 @@ export default {
       width: 260px;
       height: 160px;
       margin-right: 10px;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
   .right {

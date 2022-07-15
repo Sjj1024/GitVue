@@ -2,12 +2,12 @@
   <div class="home">
     <!-- logo区域 -->
     <header class="logobox">
-      <div class="logo">
+      <div class="logo" @click="toIndex">
         <img src="../assets/common/xiaoshen.png" alt="" />
       </div>
     </header>
     <!-- 头部导航区域 -->
-    <NavBar></NavBar>
+    <NavBar ref="nav"></NavBar>
     <!-- 主体内容区域 -->
     <MainContent :single="single"></MainContent>
     <!-- 页脚部分 -->
@@ -43,6 +43,11 @@ export default {
         console.log("MainContent-single:", single);
         this.single = Boolean(single);
       }
+    },
+  },
+  methods: {
+    toIndex() {
+      this.$refs.nav.toTarget("首页", 0);
     },
   },
 };

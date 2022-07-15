@@ -20,7 +20,7 @@
       <ul>
         <li v-for="(item, index) in newList" :key="index">
           <span> </span>
-          <a href="#">{{ item }}</a>
+          <a href="#" @click="toArticle">{{ item }}</a>
         </li>
       </ul>
     </div>
@@ -165,6 +165,14 @@ export default {
     this.travelList = preList(await getArticles({ id: 1 }), 8);
     this.photoList = preList(await getArticles({ id: 1 }), 8);
     this.frontList = preList(await getArticles({ id: 1 }), 8);
+  },
+  methods: {
+    toArticle() {
+      this.$router.push({
+        path: "/article",
+        query: { id: 232 },
+      });
+    },
   },
 };
 </script>

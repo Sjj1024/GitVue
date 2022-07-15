@@ -2,7 +2,7 @@
   <ul class="hot-article">
     <li v-for="(item, index) in hotList" :key="index">
       <span class="hoticon">{{ index + 1 }}</span>
-      <a href="#">{{ item.title }}</a>
+      <a href="#" @click="toArticle">{{ item.title }}</a>
       <span class="pinfo">
         <span>评论({{ item.commit }})</span>
         <!-- <span>喜欢({{ item.like }})</span> -->
@@ -44,6 +44,14 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    toArticle() {
+      this.$router.push({
+        path: "/article",
+        query: { id: 232 },
+      });
+    },
   },
 };
 </script>

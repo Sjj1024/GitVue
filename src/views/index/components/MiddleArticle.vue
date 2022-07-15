@@ -46,6 +46,9 @@ export default {
     height: 110px;
     margin-bottom: 5px;
     border-radius: 5px;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   span {
