@@ -62,6 +62,17 @@ export const constantRoutes = [
         }]
     },
     {
+        path: '/userinfo', // 路由地址
+        component: Layout,  // 组件地址
+        name: '用户资料',
+        children: [{
+            path: '', // 路由地址
+            name: '用户资料',
+            component: () => import('@/views/userinfo/index'),
+            meta: { title: '用户资料', icon: 'dashboard' }
+        }]
+    },
+    {
         path: '/404',
         name: "404",
         component: () => import('@/views/404'),

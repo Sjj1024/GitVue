@@ -28,7 +28,7 @@
           <el-dropdown-item>
             <span class="name">{{ name }}</span>
           </el-dropdown-item>
-          <router-link to="/" target="_blank">
+          <router-link to="/userinfo" target="_blank">
             <el-dropdown-item> 我的资料 </el-dropdown-item>
           </router-link>
           <a target="_blank" href="https://github.com/Sjj1024/GitVue">
