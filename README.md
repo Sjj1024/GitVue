@@ -1,6 +1,9 @@
 # VueX博客主题系统
 基于vue2和elementui开发的个人博客系统，可以登陆注册，首页展示，子菜单渲染，侧边工具栏等
 
+# 本项目使用了本地mock数据
+所以clone本项目之后，使用npm 或者 yarn 安装依赖包之后，就可以正常启动并展示效果  
+
 <div id="content_views" class="htmledit_views">
                     <p>登陆注册页面：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/ee2e90ad8b02435a9dd1b354b806b5af.png" width="1200"></p> 
