@@ -18,7 +18,7 @@
         @click="setMenu(index)"
         :class="{ active: menuNum == index }"
       >
-        <a href="#">{{ item }}</a>
+        {{ item }}
       </li>
     </ul>
     <!-- 基础信息 -->
@@ -162,7 +162,7 @@ export default {
   name: "UserInfo",
   data() {
     return {
-      menuNum: 1,
+      menuNum: Number.parseInt(localStorage.getItem("menuNum")) || 0,
       articleList: [
         {
           title: "这也造成了我后面的遗憾女生们都选择了骑马",
@@ -232,6 +232,7 @@ export default {
   methods: {
     setMenu(index) {
       this.menuNum = index;
+      localStorage.setItem("menuNum", index);
     },
   },
 };
