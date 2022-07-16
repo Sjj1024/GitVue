@@ -220,8 +220,7 @@ export default {
           display: inline-block;
           width: 6px;
           height: 6px;
-          // line-height: 28px;
-          background-color: #6eb6ff;
+          background-color: #2f89fc;
           border-radius: 50%;
           // padding-bottom: 10px;
           margin-bottom: 3px;

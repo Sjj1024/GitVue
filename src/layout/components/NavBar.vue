@@ -199,7 +199,9 @@ export default {
   font-weight: 500;
 
   li {
+    padding: 0px;
     position: relative;
+    height: 100%;
 
     .tool-arrow {
       display: none;
