@@ -5,7 +5,7 @@
 所以clone本项目之后，使用npm 或者 yarn 安装依赖包之后，就可以正常启动并展示效果  
 
 <div id="content_views" class="htmledit_views">
-                    <p>登陆注册页面：</p> 
+<p>登陆注册页面：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/ee2e90ad8b02435a9dd1b354b806b5af.png" width="1200"></p> 
 <p>首页：</p> 
 <p><img alt="" height="500" src="https://img-blog.csdnimg.cn/8a97cc48919b44418598d8b3d970f64c.png" width="1200">&nbsp;<img alt="" height="500" src="https://img-blog.csdnimg.cn/da4b9b31d3b14562a0cfaf3a5deab6c9.png" width="1200"></p> 
